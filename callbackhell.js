@@ -12,3 +12,4 @@ callbackpromisified(1000).then(function(){
         });
     });
 });
+console.log("Outside the code block");
