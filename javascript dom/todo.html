@@ -8,15 +8,20 @@
 </head>
 <body>
     <h1>To-Do App</h1>
-    <h3>1.Go to the gym</h3>
-    <h3>2. Cricket</h3>
-    <input type="text" id="todo">
-    <button id="btn">Add</button>
+    <h3 id="todo1">1.Go to the gym</h3>
+    <h3 id="todo2">2. Cricket</h3>
+    <input type="text" id="todo" placeholder="Enter your task">
+    <button id="btn" onclick="addToDo()">Add</button>
     <script>
-        var name = "Rudra";
-        console.log(name);
-        let input = document.querySelector("input");
-        console.log(input.value);
+        function addToDo(){
+        const inputElement = document.querySelector("input");
+        const value = inputElement.value;
+        console.log(value);
+        }
+        /*video left at 36.26  minutes and seconds 100xdevs.com*/
     </script>
+
+
+
 </body>
 </html>
