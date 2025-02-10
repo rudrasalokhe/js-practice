@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TODO</title>
+    <style>
+        .btn{
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>To-Do App</h1>
-    <h3 id="todo1">1.Go to the gym</h3>
-    <h3 id="todo2">2. Cricket</h3>
-    <input type="text" id="todo" placeholder="Enter your task">
-    <button id="btn" onclick="addToDo()">Add</button>
-    <script>
-        function addToDo(){
-        const inputElement = document.querySelector("input");
-        const value = inputElement.value;
-        console.log(value);
-        }
-        /*video left at 36.26  minutes and seconds 100xdevs.com*/
-    </script>
-
-
-
+    <div class="container">
+        <div class="content">
+            <h1>TODO APP</h1>
+            <div id="todoparent">
+            <div id="todo-1" style="display: flex;">
+            <h3>1. Go to the gym</h3>
+            <button class="btn" onclick="deletetodo(1)">Delete</button>
+            </div>
+            <div id="todo-2" style="display: flex;">
+            <h3>2. Cricket</h3>
+            <button class="btn" onclick="deletetodo(2)">Delete</button>
+            </div>
+            </div>
+            <input type="text" name="" id="">
+            <button id="btn">Click</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
