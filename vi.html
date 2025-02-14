@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise Jar</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fde4e4;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #d6336c;
+            margin-top: 20px;
+        }
+        .jar-container {
+            margin: 20px auto;
+            width: 300px;
+            height: 400px;
+            background: url('https://via.placeholder.com/300x400.png?text=Jar') no-repeat center/cover;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .chit {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #d6336c;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #d6336c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #c1295c;
+        }
+        .jar-emoji {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        const messages = [
+    "I love the way you shout at me when I feel demotivated—it shows how much you care.",
+    "You’re like a cute little sunflower, always bright and cheerful.",
+    "Your eyes are mesmerizing; I get lost in them every time.",
+    "I love the way you defend me in front of others—it makes me feel so supported.",
+    "You are always there for me, no matter what.",
+    "You adjust your schedule just so we can call on Google Meet—it’s so thoughtful.",
+    "I still remember the day we met in real life; you looked so beautiful that I was completely lost.",
+    "I adore how you send me workout tips to keep me motivated and healthy.",
+    "The baby reels you send remind me of you; they’re just so you.",
+    "You always make me feel loved in the smallest ways.",
+    "The way you believe in me gives me strength.",
+    "You make even the hardest days easier to get through.",
+    "I love your sense of humor—it lights up my day.",
+    "The way you listen to me when I need to vent is priceless.",
+    "You inspire me to be a better person every day.",
+    "You’re my biggest cheerleader, always encouraging me.",
+    "I admire your selflessness and how you think of others.",
+    "You’re so patient with me, even when I mess up.",
+    "Your smile is the most beautiful thing I’ve ever seen.",
+    "You make ordinary moments feel special just by being there.",
+    "I love how you always know what to say to cheer me up.",
+    "The way you support my goals and dreams makes me feel unstoppable.",
+    "You’re my safe space, where I can be completely myself.",
+    "I love how much effort you put into our relationship.",
+    "The way you remember the little things about me melts my heart.",
+    "You have a way of making me feel like the most important person in the world.",
+    "I love your dedication to everything you do.",
+    "The way you stand up for what you believe in is inspiring.",
+    "You’ve taught me how to love and be loved.",
+    "I adore the way you tease me—it’s playful and sweet.",
+    "You make even mundane things, like calls, feel special.",
+    "Your random acts of kindness never go unnoticed.",
+    "I love how much you care about my well-being.",
+    "The way you look at me makes me feel so loved.",
+    "You’re the first person I think of when something good or bad happens.",
+    "I admire your strength and resilience.",
+    "The way you prioritize our time together is so meaningful.",
+    "You challenge me in the best ways, helping me grow.",
+    "I love your curiosity and how you’re always learning.",
+    "You’re my partner in everything—life feels easier with you by my side.",
+    "The way you balance your life and still make time for us amazes me.",
+    "I love how you see the best in me, even when I can’t.",
+    "You make me laugh until my stomach hurts.",
+    "I love how comfortable you make me feel in my own skin.",
+    "You’re my calm in the chaos.",
+    "I admire how thoughtful you are with your words and actions.",
+    "The way you share your world with me makes me feel so included.",
+    "I love how you make me want to share everything with you.",
+    "You’re the most beautiful person I’ve ever met, inside and out.",
+    "I love you simply for being you—my everything."
+];
+        let index = 0;
+
+        function revealChit() {
+            if (index < messages.length) {
+                const chit = document.querySelector('.chit');
+                chit.innerText = messages[index];
+                chit.style.display = 'block';
+                index++;
+            } else {
+                alert('No more chits left!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Valentine's Day Surprise Jar</h1>
+    <div class="jar-emoji">🍯</div>
+    <div class="jar-container">
+        <div class="chit"></div>
+    </div>
+    <button class="button" onclick="revealChit()">Open a Chit</button>
+</body>
+</html>

@@ -13,3 +13,4 @@ function deletetodo(index){
         element.parentNode.removeChild(element);
     }
 }
+//10.00.00
