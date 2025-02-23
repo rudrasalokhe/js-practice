@@ -11,16 +11,18 @@
     <button onclick="sendRequest()">Send request</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
     <script>
-         async function sendRequest(){
+         async function sendRequest() {
             const a = document.getElementById('a').value;
             const b = document.getElementById('b').value;
-           const response = await app.get("http://localhost:3001/sum", {
-                a:a,
-                b:b
-            })
+            const response = await axios.get('http://localhost:3002/sum', {
+                params:{
+                    a:a,
+                    b:b
+                }
+            }
+            );
             console.log(response.data);
-            
-        }
+         }
     </script>
 </body>
 </html>

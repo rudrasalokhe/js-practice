@@ -1,7 +1,8 @@
 const express = require("express");
-
+const cors = require('cors');
 const app = express();
-
+app.use(express.json());
+app.use(cors());
 app.get("/sum", function(req, res) {
     const a = parseInt(req.query.a);
     const b = parseInt(req.query.b);
@@ -10,7 +11,4 @@ app.get("/sum", function(req, res) {
         ans: a + b
     });
 });
-
-app.listen(3001);
-
-//1.25..47      postman work done for the day.
+app.listen(3002);
