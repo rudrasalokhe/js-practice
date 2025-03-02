@@ -3,10 +3,15 @@ const app = express();
 const JWT_SECRET = "randomrudrasalokhe";
 const jwt = require('jsonwebtoken');
 
+
+
 // this is a middleware which is used to like parse a json data
 app.use(express.json());
 
 const users = [];
+
+
+
 
 
 // Route for user signup
@@ -54,6 +59,7 @@ app.post('/signin', (req, res) => {
 
     console.log(users);
 });
+
 
 
 app.get('/me', (req, res) => {

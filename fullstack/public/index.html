@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+<body>
+    <div class="content">
+        <div class="signup">
+            <h2>Signup</h2>
+            <input type="text" id="uid" placeholder="username...">
+            <input type="password" id="pass" placeholder="password...">
+            <button onclick="signup()">Signup</button><br><br>
+        </div>
+        <div class="signin">
+            <h2>Signin</h2>
+            <input type="text" id="username" placeholder="username...">
+            <input type="password" id="password" placeholder="password...">
+            <button onclick="signin()">Signin</button><br><br>
+        </div>
+        <div class="info">
+            <h4 id="info">User Info: </h4>
+        </div>
+        <div class="logout">
+            <Button onclick="Logout()">Logout</Button>
+        </div>
+    </div>
+    <script>
+    async function signup(){
+    const username = document.getElementById('uid').value;
+    const password = document.getElementById('pass').value;
+    await axios.post("http://localhost:3002/", {
+        username : username, 
+        password : password
+    })
+}
+    </script>
+</body>
+</html>
