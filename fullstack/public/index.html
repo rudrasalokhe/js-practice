@@ -1,41 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
-</head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
-<body>
-    <div class="content">
-        <div class="signup">
-            <h2>Signup</h2>
-            <input type="text" id="uid" placeholder="username...">
-            <input type="password" id="pass" placeholder="password...">
-            <button onclick="signup()">Signup</button><br><br>
-        </div>
-        <div class="signin">
-            <h2>Signin</h2>
-            <input type="text" id="username" placeholder="username...">
-            <input type="password" id="password" placeholder="password...">
-            <button onclick="signin()">Signin</button><br><br>
-        </div>
-        <div class="info">
-            <h4 id="info">User Info: </h4>
-        </div>
-        <div class="logout">
-            <Button onclick="Logout()">Logout</Button>
-        </div>
-    </div>
-    <script>
-    async function signup(){
-    const username = document.getElementById('uid').value;
-    const password = document.getElementById('pass').value;
-    await axios.post("http://localhost:3002/", {
-        username : username, 
-        password : password
-    })
-}
-    </script>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Authentication</title> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 380px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            color: #5a67d8;
+            font-weight: 600;
+        }
+        
+        h4 {
+            margin: 15px 0;
+            color: #4c51bf;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(106, 130, 251, 0.3);
+        }
+        
+        button {
+            background: linear-gradient(to right, #5a67d8, #6c63ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, #4c51bf, #5a67d8);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .signup, .signin {
+            margin-bottom: 25px;
+        }
+        
+        .info {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .logout button {
+            background: linear-gradient(to right, #f56565, #ed8936);
+        }
+        
+        .logout button:hover {
+            background: linear-gradient(to right, #e53e3e, #dd6b20);
+        }
+    </style>
+</head> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script> 
+<body> 
+    <div class="content"> 
+        <div class="signup"> 
+            <h2>Signup</h2> 
+            <input type="text" id="uid" placeholder="Username..."> 
+            <input type="password" id="pass" placeholder="Password..."> 
+            <button onclick="signup()">Signup</button>
+        </div> 
+        <div class="signin"> 
+            <h2>Signin</h2> 
+            <input type="text" id="username" placeholder="Username..."> 
+            <input type="password" id="password" placeholder="Password..."> 
+            <button onclick="signin()">Signin</button>
+        </div> 
+        <div class="info"> 
+            <h4 id="info">User Info: </h4> 
+        </div> 
+        <div class="logout"> 
+            <button onclick="Logout()">Logout</button> 
+        </div> 
+    </div> 
+    <script> 
+    async function signup() { 
+        const username = document.getElementById('uid').value; 
+        const password = document.getElementById('pass').value; 
+ 
+        try { 
+            const response = await axios.post("http://localhost:3003/signup", { 
+                username: username, 
+                password: password 
+            }); 
+            alert("You are signed up!"); 
+            console.log(response.data);     
+        } catch (error) { 
+            console.error("Error signing up:", error); 
+            alert("Failed to sign up. Please try again."); 
+        } 
+    }
+    async function  signin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const response = await axios.post('http://localhost:3003/signin', {
+            username : username,
+            password : password
+        });
+        localStorage.setItem('token', response.data.token);
+        alert("You are signed in");
+    }
+    async function userinforamtion() {
+        const  response = await axios.get('http://localhost:3003/me', {
+            headers : {
+                token : localStorage.getItem('token')
+            }
+        });
+        document.getElementById("info").innerHTML = "Username: " + response.data.username + "<br>" + "Password"  + response.data.password;
+    }
+    userinforamtion();
+    </script> 
+</body> 
 </html>
